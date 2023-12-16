@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import MovieCard from './Components/MovieCard';
+import SearchBar from './Components/SearchBar';
 const apiKey = import.meta.env.VITE_API_KEY;
 
 function App() {
@@ -16,13 +17,30 @@ function App() {
 
   }, []);
 
+  const handleSearch = (searchValue) => {
+
+    if (searchValue.trim() !== '') {
+
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchValue}`)
+        .then(response => response.json())
+        .then(obj => setMovies(obj.results))
+        .catch(error => console.error(error));
+
+    }
+
+  };
+
   return (
 
     <>
 
       <h1>Film del momento</h1>
 
-      <div className='movies'>
+      <hr />
+
+      <SearchBar onSearch={handleSearch} />
+
+      <div className='movie-cards-container'>
 
         {movies.map(movie => (
 

@@ -1,0 +1,38 @@
+.search-bar-container {
+    padding-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+input {
+    padding: 0.8rem 1rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.084);
+    border-radius: 8px 0 0px 8px;
+    width: 250px;
+
+    &:focus {
+        outline: none;
+        border: 1px solid greenyellow;
+    }
+
+}
+
+button {
+    border-radius: 0 8px 8px 0;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: black;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: white;
+
+    &:hover {
+        border-color: greenyellow;
+        color: greenyellow;
+    }
+}

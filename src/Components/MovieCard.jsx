@@ -1,24 +1,26 @@
+import React from 'react';
+import './MovieCard.scss';
+
 const MovieCard = ({ title, overview, posterPath, popularity, language }) => {
-  
-    return (
+  return (
 
-      <div className='movie-card'>
+    <div className='movie-card'>
 
-        <h2>{title}</h2>
+      <img src={`https://image.tmdb.org/t/p/w500/${posterPath}`} alt={title} />
+
+      <div className='movie-details'>
+        <h3>{title}</h3>
         <p>{overview}</p>
-  
-        <div>
-            <figure>
-              <img src={`https://image.tmdb.org/t/p/w500/${posterPath}`} alt={title} />
-            </figure>
+
+        <div className='info'>
+          <p><strong>Popularity: </strong>{popularity}</p>
+          <p><strong>Language: </strong>{language}</p>
         </div>
-  
-        <p>Popularity: {popularity}</p>
-        <p>Language: {language}</p>
+
       </div>
 
-    );
+    </div>
+  );
+};
 
-  };
-  
-  export default MovieCard
+export default MovieCard;
